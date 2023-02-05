@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Courses</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://spng.pngfind.com/pngs/s/150-1504262_png-courses-asian-restaurant-transparent-png.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+                <div class='welcome'>All Courses!!!</div>
+                <% arrayCourses.forEach(item=> { %>
+                    <article>
+                        <h3> Course Name:
+                            <%=item.courseName %>
+                        </h3>
+                        <h4><a class="btn" href="/details/<%=item._id  %> ">show details...</a></h4>
+                    </article>
+                    <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://spng.pngfind.com/pngs/s/150-1504262_png-courses-asian-restaurant-transparent-png.png">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class='container'>
+        <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+                <div class='welcome'>Course!!!</div>
+                <article>
+                    <h3> Course Name:
+                        <%=objCourses.courseName %>
+                    </h3>
+                    <h3>Course Title:
+                        <%=objCourses.courseTitle %>
+                    </h3>
+                    <h3>Course Number:
+                        <%=objCourses.courseNumber %>
+                            <br><br>
+                    </h3>
+                    <button class="delete" data-linkid="<%=objCourses.id  %>">Delete this Course??</button>
+                </article>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btnDelete = document.querySelector(".delete")
+        const courseID = btnDelete.getAttribute("data-linkid");
+        btnDelete.addEventListener("click", (event) => {
+            fetch(`/all-courses/${courseID}`, { method: "delete" })
+                .then((resp) => resp.json())
+                .then((data) => window.location.href = data.myLink)
+                .catch((err) => {
+                    console.log("Error inside Fetch --> " + err);
+                });
+            alert("Deleted Succussfully")
+        })
+    </script>
+</body>
+
+</html>
